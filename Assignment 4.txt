@@ -1,0 +1,673 @@
+# Assume Data wherever needed/necessary
+
+### Loop Statements
+
+# #L1 WAP to print all elements of a list using a for loop. Take the elements of the list from the user.
+#For e.g. Input: l = ['3','Hi','67','0','12','0','8']
+lst = []
+n = int(input("enter the length of list:"))
+for x in range(n):
+    val = input("enter the values:")
+    lst.append(val)
+print(lst)
+
+for i in range(len(lst)):
+    print(lst[i])
+    
+
+
+
+#L2 WAP to take inputs from user to make a list. Length of the list has to be taken from the user.
+#Again take one input from user and search it in the list and delete that element, if found.
+#If not found, print "Element not present".
+
+#For e.g. Input: len_list = 5
+  #              list = ["a", "b", "y", "e", "p"]
+    #            search_element = "g"
+      #Output: "Element not found"
+      #          search_element = "e"
+   #                 Output: ["a", "b", "y", "p"]
+                        
+                        
+lst1 = []
+n = int(input("enter the length of list:"))
+for x in range(n):
+    val = input("enter the values:")
+    lst1.append(val)
+    
+print(lst1)    
+search = input("Enter the element that you want to remove:")
+
+if search in lst1:  
+    lst1.remove(search)
+else: print("Element not found")
+    
+print("List after remove :",lst1)
+        
+
+
+# #L3
+#Make a grading system for a school based on the marks of the students using the following criteria.
+#Marks 0 - 40 : Grade F
+     #41 - 50 : Grade E
+     #51 - 70 : Grade D
+     #71 - 80 : Grade C
+     #81 - 90 : Grade B
+  #   91 - 100: Grade A
+#Continuously take marks as input from the user and print the grade. 
+#The user can enter "Stop" to stop the loop.
+while True:
+    marks = input("Enter marks (or 'stop' to end): ")
+    if marks == "stop":
+        print("Exiting...")
+        break
+        
+    marks = int(marks)
+    if marks >= 91 and marks <= 100:
+        grade = "A"
+    elif marks >= 81 and marks <= 90:
+        grade = "B"
+    elif marks >= 71 and marks <= 80:
+        grade = "C"
+    elif marks >= 51 and marks <= 70:
+        grade = "D"
+    elif marks >= 41 and marks <= 50:
+        grade = "E"
+    elif marks >= 0 and marks <= 40:
+        grade = "F"
+    else:
+        print("Invalid marks entered!")
+        continue
+        
+    # print the grade
+    print("Grade: ", grade)
+
+
+#L4 WAP to save the cube of all numbers from 1 to a number n in list, where n is taken as input from the user.
+
+#For e.g. Input: 5
+  #      Output: [1, 8, 27, 64, 125]  #Cube of numbers from 1 to 5 where 5 is the input from the user
+    
+num = int(input("Enter the number:"))
+l = [x**3 for x in range(1,num+1)]
+print(l)
+
+#L5 WAP to print even numbers in a given range in reverse order. Take the range from the user.
+#For e.g. Input: start = 3
+ #               End = 14
+        #Output: 14, 12, 10, 8, 6, 4
+
+start = int(input("Enter the starting value:"))
+end = int(input("Enter the ending value:"))
+l = [x for x in range(start,end+1) if x%2==0]
+print(l[::-1])
+
+#L6 WAP to print odd numbers in a given range in reverse order. Take the range from the user.
+#For e.g. Input: start = 3
+  #              End = 14
+    #    Output: 13, 11, 9, 7, 5, 3
+    
+start = int(input("Enter the starting value:"))
+end = int(input("Enter the ending value:"))
+l = [x for x in range(start,end+1) if x%2==1]
+print(l[::-1])
+
+# L7 WAP to print multiplication table of a number taken as input from the user.
+# For e.g. Input: 5
+        #Output: 5*1 = 5
+                #5*2 = 10
+num1 = int(input("Enter the number:"))
+for x in range(1,11):
+    table = num1*x
+    print("%i * %i = %i"%(num1,x,table))
+    
+
+# L8 WAP to print the following pattern.
+#e.g. i/p: n = 4
+  #  o/p:
+     #   1
+       # 1 2
+       # 1 2 3
+       # 1 2 3 4
+n= int(input("Enter the number:"))
+for i in range(1,n+1):
+    for j in range(1,i+1):
+        print(j,end="")
+    print()
+ 
+
+
+
+
+#L9 Write a program to calculate the sum of series up to n terms for a digit d. n & d are taken as input from the user.
+
+n = int(input("Enter the number of terms in the series: "))
+d = int(input("Enter the digit to be used in the series: "))
+term = d
+total = 0
+for i in range(n):
+    total += term
+    term = term * 10 + d
+print("The sum of the series is:", total)
+
+#L10 WAP that keeps on accepting numbers from the user until the user enters Zero(0) as input. Display the sum and average of all the numbers.
+#For example:
+# Input: 3, 6, 8, 2, 5, Stop
+#Output: Sum = 24
+# Average = 4.8
+s=0
+x= 1
+count = 0
+while(x):
+    num = int(input("Enter the number:"))
+    if num == num:
+        count+=1
+        s+=num
+        if num == 0:
+            x=0
+print("Sum:",s)
+print("Average:",s/count-1)
+
+
+#L11 Accept n numbers from the user and display their average. n is input from the user.
+#For example:
+#  Input: n = 5
+# Numbers = 3, 6, 2, 9, 0
+#Output: Average = 4.0
+
+n= int(input("Enter the number:"))
+ssum = 0
+for i in range(n):
+    val = int(input("Enter the values:"))
+    ssum += val
+print("Average:",ssum/n)
+
+### String Questions
+
+#S1 Write a Python program to count the number of each of the characters (character frequency) in a string input by the user. Ignore the case.
+string = input("Enter the string: ")
+lst_count = {}
+for i in  string:
+    if i in lst_count:
+        lst_count[i] += 1
+    else:
+        lst_count[i] = 1
+
+for key,value in lst_count.items():
+    print(key, "=", value)
+
+#S2 Write a Python program to find the digits which are absent in a given mobile number.
+
+mobile_number = input("Enter your mobile number: ")
+all_digit = set("0123456789")
+present_digit = set(mobile_number)
+print("Absent number:" , sorted(list(all_digit - present_digit)))
+
+    
+
+
+#S3 WAP in python to find average of n numbers taken as input from the user in realtime.
+n = int(input("Enter the number: "))
+s = 0
+for i in range(n):
+    val = int(input("enter the values: "))
+    s+= val
+print("Average: ",s/n)
+    
+
+#S4 WAP in python that accepts a hyphen-separated sequence of alphabets as input and prints the words in a hyphen-separated sequence after sorting them alphabetically.
+#For e.g. Input: "p-y-t-h-o-n"
+#Output: ['h', 'n','o', 'p', 't', 'y']
+str1 = input("Enter the string:")
+print(sorted(str1.split("-")))
+
+#S5 WAP in python to find the number of vowels, consonants, digits, special characters and white space characters in a string input by the user.
+
+#Example: Input: "Qwerty@123"
+#	output: v = 1, c = 5, d = 3, w = 0, s = 1
+
+string = input("Enter the Characters: ").lower()
+v ,c,d,w,splc,= 0,0,0,0,0
+vowel = 'aeiouAEIOU'
+consonent = 'bcdfghjklmnpqrstvwxyz'
+for i in range(len(string)):
+    if string[i].isdigit():
+        d+=1
+    elif string[i] in vowel:
+        v+=1
+    elif string[i] == " ":
+        w+=1
+    elif string[i] in consonent:
+        c+=1
+    else:
+        splc+=1
+print('vowel:',v)
+print('Consonent:',c)
+print('whiteSpace:',w)
+print('Digit:',d)
+print('splc:',splc)
+print("Total Characters: ",len(string))
+
+
+#S6 WAP in python to check the strength of the password input by the user based on the following features.
+#Length minimum of 8 characters  (+1 Strength)
+#Combination of upper case & lower case characters (+1 Strength)
+#Combination of alphabets & digits (+1 Strength)
+#Use of Special Characters (+1 Strength)
+strength = 0
+schar = "!@#$%^&*?><"
+password = input("Enter the Characters: ")
+ac=dc=uc=lc=sc=0
+for i in password:
+    if i.isalpha():ac +=1
+    elif i.isupper():uc +=1
+    elif i.islower():lc += 1
+    elif i.isdigit(): dc += 1 
+    elif i in schar:
+        sc += 1
+               
+if len(password) > 8:
+    strength += 1
+if ac > 0 and dc > 0 :
+    strength += 1
+if ac > 0 and dc > 0 :
+    strength += 1
+if uc > 0 and lc > 0:
+    strength += 1
+if sc > 0:
+    strength += 1
+ 
+print(strength)
+if strength >=3: 
+    print("Strong Password ")
+else: print("Weak Password")
+
+#S7 WAP in python to compare two strings and tell the user if both of those strings are same or not. 
+#Ignore their case.
+
+str1 = input("Enter the String: ").lower()
+str2 =  input("Enter the String: ").lower()
+
+if str1 == str2:
+    print("Both the Strings are Same")
+else:
+    print("Both the Strings Are Not Same")
+
+#S8 WAP in python to calculate the number of times a character is repeated in a given string.
+#Take the string and character from the user.
+
+#Example: Input String: "Neil Nitin Mukesh"
+#Input Character: "e"
+#Output: 2
+
+str1 = input("Enter the string:")
+count = 0
+input_char = input("Enter the Character you want to count: ")
+for i in range(len(str1)):
+    if input_char in str1[i]:
+        count+= 1
+print(count)
+
+#S9 WAP in python which accepts string from the user and displays only those characters/elements which are present at an even index.
+
+string = input("Enter the String:")
+print(string[0::2])
+
+#S10 WAP in python to capitalize the first letter of the First Name and Surname where whole name is taken as input from the user.
+#Example: Input: "first last" or "FIRST LAST" or "first lAst" i.e. Input can be in any case.
+#Output: "First Last"
+string1  = input("Enter the string:")
+splt1 = string1.split(" ")
+print(splt1[0].capitalize() +" "+ splt1[-1].capitalize())
+
+#S11 Write a Python program that accepts a comma separated sequence of words as input and prints the unique words in sorted form (alphanumerically).
+#Sample Words : red, white, black, red, green    
+#Expected Result : black, green, red, red, white
+str1 = input("Enter string with comma seperated values: ")
+print(sorted(str1.split(',')))
+
+#S12 Write a Python program to count repeated characters in a string.
+Sample_string = 'thequickbrownfoxjumpsoverthelazydog'
+box = {}
+for i in Sample_string:
+    if i in box:
+        box[i] += 1
+    else:
+        box[i] = 1
+
+        
+for keys,values in box.items():
+    if values >= 2:
+        print(keys,"=",values)
+            
+            
+            
+
+### List Questions
+
+#Li1 WAP to remove empty strings from the list of strings. Take list as input from the user.
+Input  = ["My", "name", "", "is", "", "Alankrita", "", "."]
+Output =  ["My", "name", "is", "Alankrita", "."]
+
+lst = list(filter(lambda x: x != '', lst))
+print("List after removing empty strings:", lst)
+        
+
+#Li2 WAP to make a list of all the characters starting from character 'A' to the input character from the user.
+end_char = input("Enter a character: ").upper()
+char = [chr(char) for char in range(ord('A'),ord(end_char)+1)]
+print(char)
+
+
+#Li3 WAP to check if a specific employee e is present in a company or not. Employee names are saved in a list.e is taken as input from the user.
+empList = ["Ashwin", "Rachit", "Sanjana", "David", "Komal"]
+emp_name = input("Enter name of employee to find from the list:").capitalize()
+if emp_name in empList:
+    print("Employee is Present")
+else: print("Employee not Present")
+
+#Li4 Write a python program to find the maximum and minimum number in a list of 10 elements 
+   #(taken as input from the user) and also find the index position of the these numbers.
+#For example: Input : [25, 2, 1, 86, 42, 32, 27, 12, 31, 10]
+#Output: Max Number: 86, Index of Max Number: 3
+#Min Number: 1, Index of Min Number: 2
+
+lst_new = [25,2,1,86,42,32,27,12,31,10]
+max_num = max(lst_new)
+index_max = lst_new.index(max_num)
+print("Max Number : ", max_num , ", Index of Max number: ",index_max)
+min_num = min(lst_new)
+index_min = lst_new.index(min_num)
+print("Min Number : ", min_num , ", Index of min number: ",index_min)
+
+#Li5 Given two Python lists of same length. Iterate both lists simultaneously such that list1 
+# should display item in original order and list2 in reverse order.
+    
+list_1= [10, 20, 30, 40]
+list_2 = [100, 200, 300, 400]
+for i in range(len(list_1)):
+    print(list_1[i],list_2[-1::-1][i])
+
+#Li6 WAP to concatenate two lists index-wise.
+list1 = ["M", "na", "i", "Ashu"]
+list2 = ["y", "me", "s", "tosh"]
+list3 = []
+
+for i in range(len(list1)):
+    list3.append(list1[i] + list2[i])
+        
+print(list3)
+    
+
+
+#Li7 WAP to remove/delete items from a list while iterating without creating a duplicate list.
+# Take the elements to be deleted from the user in real-time.
+
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+elements_to_delete = []
+while True:
+    element = input("Enter an element to delete (press 'q' to stop): ")
+    if element == 'q':
+        break
+    elements_to_delete.append(int(element))
+
+i = 0
+while i < len(my_list):
+    if my_list[i] in elements_to_delete:
+        del my_list[i]
+    else:
+        i += 1
+
+print(my_list)
+
+
+#Li8 WAP to generate a Python list of all the prime numbers between n to m where n & m are taken as input from the user.
+n  = int(input("enter the number to start: "))
+m = int(input("enter the number to end: "))
+for i in range(n,m):
+    for j in range(2,i):
+        if i % j == 0:
+            break
+    else:print(i,end = ", ")
+
+#Li9 WAP to concatenate two lists in the following order:
+list1 = ["Hello ", "World"]
+list2 = ["Hi", "There"]
+
+output = []
+
+for i in list1:
+    for j in list2:
+        output.append(i+j)
+
+print(output)
+
+
+    
+        
+
+#Li10 Given two lists having names of students and their corrsponding marks.
+names = ["Ashutosh", "Ajay", "Alankrita", "Rachit", "Komal", "Anil"]
+marks = [23, 21, 26, 23, 27, 24]
+    
+name = input("enter the name: ").capitalize()
+if name in names:
+    for i in range(len(name)):
+        indx = names.index(name)
+    print(f"Marks of {name} is: ",marks[indx])
+else: print("Student not find")
+
+#Li11 Extended question of #Li10
+#Add an option to change marks of any students in the same code of #Li10. Take student name and new marks from the user. 
+#Print the modified list as output.
+
+names_new = ["Ashutosh", "Ajay", "Alankrita", "Rachit", "Komal", "Anil"]
+marks_new = [23, 21, 26, 23, 27, 24]
+
+new_name = input("Enter the student name: ").capitalize()
+new_marks = int(input("Enter New Marks :"))
+if new_name in names_new:
+    for i in range(len(names_new)):
+        indx_new = names_new.index(new_name)
+    marks_new[indx_new] = new_marks
+    print(marks_new)
+else: print("Student not find")        
+
+
+#Li12 Extended question of #Li10
+#Give an option to enter the marks of a new student into the existing lists names and marks. Take new data as input from user.
+#Print the new names and marks list as output.
+
+
+names_new1 = ["Ashutosh", "Ajay", "Alankrita", "Rachit", "Komal", "Anil"]
+marks_new1 = [23, 21, 26, 23, 27, 24]
+
+name1  = input("Enter New Name: ").capitalize()
+
+
+if name1  in names_new1:print("Name found")
+else:
+    marks1 = int(input("Enter New Marks: "))
+    names_new1.append(name1)
+    marks_new1.append(marks1)
+    print(names_new1)
+    print(marks_new1)
+
+    
+
+
+### Dictionary Questions
+
+#D1 WAP in Python to merge following dictionaries to create a new one:
+dic1={1:10, 2:20}
+dic2={3:30, 4:40}
+dic3={5:50, 6:60}
+dic4 = {**dic1,**dic2,**dic3}
+print(dic4)
+
+#D2 WAP in python to generate and print a dictionary that contains a number (between 1 and n) 
+#in the form {x : x*x} where n is the input from the user.
+n = int(input("Enter the number: "))
+dict_of_square = {}
+for i in range(1,n+1):
+    dict_of_square.update({i : i*i})
+    
+print(dict_of_square)
+
+
+
+#D3 WAP in python to find the number of vowels, consonants, digits, white space characters & 
+#special characters in a string and save the result in the form of a dictionary.
+
+count_dict = {}
+string = input("Enter the Characters: ").lower()
+v ,c,d,w,splc,= 0,0,0,0,0
+vowel = 'aeiouAEIOU'
+consonent = 'bcdfghjklmnpqrstvwxyz'
+for i in range(len(string)):
+    if string[i].isdigit():
+        d+=1
+    elif string[i] in vowel:
+        v+=1
+    elif string[i] == " ":
+        w+=1
+    elif string[i] in consonent:
+        c+=1
+    else:
+        splc+=1
+
+count_dict.update({'Vowel':v,'Consonent': c, 'Digits' :d, 'WhiteSpaces': w,'SpecialChar' : splc })
+print(count_dict)
+
+
+#D4 WAP to reverse map the dictionary items. Take dictionary as input from the user.
+d = {'A': 65, 'B': 66, 'C': 67, 'D': 68}
+d2 = {}
+for key,value in d.items():
+    d2.update({value:key})
+    
+print(d2)
+
+#D5 WAP to save Username and Password of 10 employees in an organisation. 
+#Take the Username and Password as input from the user one by one and save in the Dictionary.
+
+employee = {}
+for i in range(10):
+    name = input("enter your name: ").capitalize()
+    password = input("Enter your password: ")
+    employee.update({name:password})
+    
+print(employee)
+
+#D6 Extended Question from #D5
+#Write an additional functionality to check if an employee is present in the organisation or not.
+#Basically "Search" Functionality based on their username
+#Take employee name as input from the user.
+#If the employee is present, print "Present" else print "Not Present"
+
+employee = {}
+for i in range(2):
+    name = input("enter your name: ").capitalize()
+    password = input("Enter your password: ")
+    employee.update({name:password})
+
+print(employee)
+find = input("Enter the name of Employee to find: ").capitalize()
+for key,value in employee.items():
+    print(key)
+if find ==  key: print("Employee in Present")
+else:                print("Employee is Not present")
+
+
+### Misc. Questions - i.e. you can use any data type which seems feasible for question
+
+#M1 WAP in python that accepts two integers (n) & (m) from user and 
+# computes the value of 2n3 + 5m2 - 7n + 10
+n,m = 10,8
+print("Answer:-",(2*n**3) + (5*m**2) - (7*n + 10))
+
+#M2 Write a python program to find the intersection of elements from two list  (find the common elements in two lists).
+lst_new1 = [1,8,2,10,9,6,100]
+lst_new2 = [8,1,5,10,7,4,100]
+lst_new = []
+for i in range(len(lst_new1)):
+    for j in range(len(lst_new2)):
+        if lst_new1[i] == lst_new2[j]:
+            lst_new.append(lst_new2[j])
+        
+print("Common Elements From The List: ",lst_new)
+
+#M3 WAP in Python to find the Max of n numbers all taken as input from the user.
+lst = [4,8,5,6,45]
+print(max(lst))
+
+#M4 WAP which takes a sequence of numbers from the user and check if all input numbers are unique.
+num = input("enter number: ")
+num2 = set(num)
+if len(num) == len(num2):
+    print("Unique List ")
+else: 
+    print("Not Unique")
+
+
+
+#M5 WAP to reverse a given integer number.
+int_num = input("Enter the number: ")
+print(int(int_num[-1::-1]))
+
+#M6 WAP to take 10 integer inputs from the user and save them in a list. 
+#The inputs have to be mix of even and odd numbers. 
+#Now make one list to save all the even numbers from the input list. 
+#Make another list for odd numbers too.
+num_list = []
+odd_list = []
+even_list = []
+
+for i in range(1,11):
+    numbers = int(input("Enter the number: "))
+    num_list.append(numbers)
+    
+print("All Numbers List: -" ,num_list)
+    
+for j in range(len(num_list)):
+    if num_list[j] % 2 == 0:
+        even_list.append(num_list[j])
+    else:
+        odd_list.append(num_list[j])
+        
+
+print("Odd Number List: -",odd_list)
+print("Even Number List: - ",even_list)
+
+#M7 WAP to convert temperature in Fahrenheit to Celsius. Take the temperature from the user in float type.
+fahrenheit = (float(input("Enter the Tempreture: ")))
+celsius = (fahrenheit - 32)/1.8
+print(float(celsius))
+
+#M8 WAP to continuously take Names as input from the user. 
+#Save the incoming names into a list as Full Name and save {First Name:Second Name} in a dictionary.
+# Take inputs till the user enters "Stop"
+name_list = []
+name_dict = {}
+while(True):
+    name = input("Enter your full name: ")
+    if name == 'stop':
+        break
+    name_list.append(name)
+    name_dict.update({first_name : last_name})
+    
+print(name_dict)
+
+
+#M9 WAP to make a simple and compound interest calculator. Take all the necessary data as input from the user.
+P = input("\n Enter the principal amount: ")
+T = input("\n Enter the time: ")
+R = input("\n Enter the rate: ")
+
+Si = (int(P) * float(T) * float(R) ) /100
+Ci = int(P) * (((1 + float(R)/100) ** int(T)) - 1)
+
+
+print("\n Simple Interest = ",Si)
+print("\n Compound Interest = ",Ci)
+
